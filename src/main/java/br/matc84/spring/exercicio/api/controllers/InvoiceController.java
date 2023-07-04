@@ -16,8 +16,6 @@ import br.matc84.spring.exercicio.api.dtos.InvoiceDTO;
 import br.matc84.spring.exercicio.domain.models.InvoiceModel;
 import br.matc84.spring.exercicio.domain.ports.InvoiceServicePort;
 
-import javax.validation.Valid;
-
 @Validated
 @RestController
 @RequestMapping(value = InvoiceController.API_URL)
@@ -42,8 +40,8 @@ public class InvoiceController {
     }
 
     @PostMapping
-    public ResponseEntity<InvoiceModel> create(@RequestBody @Valid InvoiceDTO invoice) {
-        InvoiceModel response = this.invoiceServicePort.create(invoice.getTotalValue(), invoice.getDueDate());
+    public ResponseEntity<Object> create(@RequestBody @Validated InvoiceDTO invoice) {
+        InvoiceModel createdInvoice = this.invoiceServicePort.create(invoice.getTotalValue(), invoice.getDueDate());
 
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
