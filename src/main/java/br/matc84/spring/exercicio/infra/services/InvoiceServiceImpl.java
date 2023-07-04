@@ -41,7 +41,6 @@ public class InvoiceServiceImpl implements InvoiceServicePort {
 
     @Override
     public InvoiceModel create(final BigDecimal totalValue, final LocalDate dueDate) {
-        InvoiceModel invoice = new InvoiceModel(totalValue, dueDate);
-        return this.invoiceRepositoryPort.create(invoice);
+        return this.invoiceRepositoryPort.create(totalValue, dueDate);
     }
 }
