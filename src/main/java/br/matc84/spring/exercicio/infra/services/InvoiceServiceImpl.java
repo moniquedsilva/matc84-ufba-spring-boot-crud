@@ -38,4 +38,10 @@ public class InvoiceServiceImpl implements InvoiceServicePort {
 
         throw new InvoiceNotFoundException(uuid);
     }
+
+    @Override
+    public InvoiceModel create(final BigDecimal totalValue, final LocalDate dueDate) {
+        InvoiceModel invoice = new InvoiceModel(totalValue, dueDate);
+        return this.invoiceRepositoryPort.create(invoice);
+    }
 }
