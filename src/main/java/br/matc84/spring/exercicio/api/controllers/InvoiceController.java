@@ -41,7 +41,10 @@ public class InvoiceController {
 
     @PostMapping
     public ResponseEntity<InvoiceModel> create(@RequestBody @Validated InvoiceDTO invoiceDTO) {
-        InvoiceModel response = this.invoiceServicePort.create(invoiceDTO);
+        InvoiceModel response = this.invoiceServicePort.create(
+            invoiceDTO.totalValue,
+            invoiceDTO.dueDate
+        );
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
