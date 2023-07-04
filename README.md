@@ -16,4 +16,4 @@ A entrega deverá ser feita da seguinte forma:
 ---
 Utilize [este vídeo](https://www.youtube.com/watch?v=Ge7Em4byou8) para te auxiliar na configuração do ambiente Java 17 + Maven + Spring;
 
-# Boa Sorte! 🍀
+# Boa Sorte!🍀
