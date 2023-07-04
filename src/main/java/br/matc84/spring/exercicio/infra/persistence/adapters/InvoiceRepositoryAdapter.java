@@ -40,14 +40,14 @@ public class InvoiceRepositoryAdapter implements InvoiceRepositoryPort {
 
     @Override
     public InvoiceModel create(final BigDecimal totalValue, final LocalDate dueDate) {
-        InvoiceEntity invoice = InvoiceEntityBuilder
-                .anInvoiceEntity()
-                .withTotalValue(totalValue)
-                .withDueDate(dueDate)
-                .build();
-
-        this.invoiceRepository.save(invoice);
-
-        return InvoiceMapper.toModel(invoice);
+        return InvoiceMapper.toModel(
+            this.invoiceRepository.save(
+                InvoiceEntityBuilder
+                    .anInvoiceEntity()
+                    .withTotalValue(totalValue)
+                    .withDueDate(dueDate)
+                    .build()
+            )
+        );
     }
 }
