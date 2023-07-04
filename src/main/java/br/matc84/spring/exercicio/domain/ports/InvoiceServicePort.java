@@ -9,4 +9,10 @@ import br.matc84.spring.exercicio.domain.models.InvoiceModel;
 public interface InvoiceServicePort {
     public List<InvoiceModel> getAll();
     public InvoiceModel findById(String uuid);
+    public InvoiceModel create(InvoiceDTO invoiceDTO) {
+        return new InvoiceModel(
+            invoiceDTO.totalValue,
+            invoiceDTO.dueDate
+        );
+    }
 }
