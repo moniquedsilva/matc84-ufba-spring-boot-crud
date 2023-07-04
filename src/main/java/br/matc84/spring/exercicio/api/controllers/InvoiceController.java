@@ -40,8 +40,8 @@ public class InvoiceController {
     }
 
     @PostMapping
-    public ResponseEntity<InvoiceModel> create(@RequestBody @Validated InvoiceDTO invoice) {
-        InvoiceModel response = this.invoiceServicePort.create(invoice);
+    public ResponseEntity<InvoiceModel> create(@RequestBody @Validated InvoiceDTO invoiceDTO) {
+        InvoiceModel response = this.invoiceServicePort.create(invoiceDTO);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
