@@ -46,6 +46,7 @@ public class InvoiceRepositoryAdapter implements InvoiceRepositoryPort {
                     .anInvoiceEntity()
                     .withTotalValue(totalValue)
                     .withDueDate(dueDate)
+                    .withCreatedAt(System.currentTimeMillis())
                     .build()
             )
         );
