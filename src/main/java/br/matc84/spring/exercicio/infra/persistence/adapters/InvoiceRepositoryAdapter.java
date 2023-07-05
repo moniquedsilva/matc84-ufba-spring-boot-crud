@@ -2,6 +2,7 @@ package br.matc84.spring.exercicio.infra.persistence.adapters;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -46,7 +47,7 @@ public class InvoiceRepositoryAdapter implements InvoiceRepositoryPort {
                     .anInvoiceEntity()
                     .withTotalValue(totalValue)
                     .withDueDate(dueDate)
-                    .withCreatedAt(System.currentTimeMillis())
+                    .withCreatedAt(LocalDateTime.now())
                     .build()
             )
         );
